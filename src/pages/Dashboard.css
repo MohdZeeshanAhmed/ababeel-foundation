@@ -1,0 +1,121 @@
+.dashboard {
+  padding: 2rem 1.25rem;
+  font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+.dashboard-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+.dashboard-header h1{
+  margin:0.1rem 0;
+  font-size:2rem;
+}
+.eyebrow{
+  display:inline-block;
+  padding:0.2rem 0.7rem;
+  background:#e8f1ff;
+  color:#0c487a;
+  border-radius:999px;
+  font-weight:700;
+}
+.subtitle{
+  color:#4b5568;
+  margin:0;
+}
+.header-actions{
+  display:flex;
+  gap:0.5rem;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: left;
+  border:1px solid #e6eaf5;
+  box-shadow:0 12px 30px rgba(15,31,51,0.06);
+}
+.card h2{
+  margin:0 0 0.35rem 0;
+  font-size:1.8rem;
+  color:#0c487a;
+}
+.card p{
+  margin:0 0 0.35rem 0;
+  font-weight:700;
+}
+.card span{
+  color:#4b5568;
+}
+
+.recent {
+  background:#fff;
+  border-radius:12px;
+  padding:1rem;
+  border:1px solid #e6eaf5;
+  box-shadow:0 12px 30px rgba(15,31,51,0.06);
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  margin-bottom:0.5rem;
+}
+.sparkline{
+  width:140px;
+  height:50px;
+}
+.sparkline-wrap h4{
+  margin:0 0 0.25rem 0;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+.table th{
+  color:#4b5568;
+  font-weight:700;
+}
+
+.btn{
+  display:inline-block;
+  padding:0.65rem 1rem;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
+}
+.btn.primary{
+  background:#f8c146;
+  color:#0f1f33;
+}
+.btn.ghost{
+  border:1px solid #0c487a;
+  color:#0c487a;
+}
+
+@media(max-width:900px){
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .dashboard-header{flex-direction:column}
+}
+@media(max-width:600px){
+  .metrics{grid-template-columns:1fr}
+  .header-actions{width:100%}
+  .header-actions .btn{flex:1;text-align:center}
+  .section-head{flex-direction:column;align-items:flex-start}
+}

@@ -1,0 +1,57 @@
+.simple-page .simple-head {
+  text-align: center;
+  margin-bottom: 1.35rem;
+}
+
+.simple-title {
+  margin: 0.35rem 0 0.35rem;
+  font-size: 2.2rem;
+}
+
+.simple-subtitle {
+  margin: 0 auto;
+  max-width: 820px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.simple-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.simple-card {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+  padding: 1.1rem;
+  box-shadow: 0 14px 28px rgba(2, 6, 23, 0.06);
+}
+
+.simple-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.simple-card p {
+  margin: 0.4rem 0 0;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.simple-card a {
+  color: #0c4a6e;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .simple-grid {
+    grid-template-columns: 1fr;
+  }
+  .simple-title {
+    font-size: 1.85rem;
+  }
+}
+

@@ -1,0 +1,226 @@
+/* Wrapper for alignment (button is fixed; wrapper matches it) */
+.wrapper {
+  position: fixed;
+  left: 0px;
+  top: 430px;
+
+  width: 220px;
+  height: 56px;
+
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
+/* Particle layer */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Particle dot */
+.particle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+
+  transform: translate(0, -50%);
+  opacity: 0;
+}
+
+/* Particles out */
+.disintegrating .particle {
+  opacity: 1;
+  animation: particleOut 520ms ease forwards;
+  animation-delay: var(--dly, 0ms);
+}
+
+/* Particles in */
+.assembling .particle {
+  opacity: 1;
+  animation: particleIn 520ms ease forwards;
+  animation-delay: var(--dly, 0ms);
+}
+
+/* ✅ Ensure normal state always shows the button */
+.shown .floatingDonateBtn {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ✅ Pause pulse during effects */
+.disintegrating .floatingDonateBtn,
+.assembling .floatingDonateBtn {
+  animation-play-state: paused;
+  will-change: transform, opacity;
+}
+
+/* ✅ Button dissolves during disintegrate */
+.disintegrating .floatingDonateBtn {
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(0.6px);
+  transition: opacity 520ms ease, transform 520ms ease, filter 520ms ease;
+}
+
+/* ✅ Button comes back during assemble */
+.assembling .floatingDonateBtn {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  transition: opacity 520ms ease, transform 520ms ease, filter 520ms ease;
+}
+
+/* Your button styles (KEEP colourful) */
+.floatingDonateBtn {
+  position: fixed;
+  left: 0px;
+  top: 430px;
+
+  width: 220px;
+  height: 56px;
+
+  z-index: 2147483647;
+
+  border: none;
+  border-radius: 0 14px 14px 04px;
+  cursor: pointer;
+
+  color: #ffffff;
+  background: linear-gradient(135deg, #0f766e 0%, #16a34a 100%);
+
+  box-shadow: 0 10px 28px rgba(15, 118, 110, 0.35);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+
+  pointer-events: auto;
+}
+
+/* Layout inside */
+.inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 14px;
+  gap: 12px;
+}
+
+.iconBox {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+
+  font-size: 18px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.sub {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.chev {
+  font-size: 18px;
+  opacity: 0.85;
+  transform: translateX(0);
+  transition: transform 160ms ease;
+}
+
+.floatingDonateBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(15, 118, 110, 0.45);
+}
+
+.floatingDonateBtn:hover .chev {
+  transform: translateX(4px);
+}
+
+.floatingDonateBtn:focus-visible {
+  outline: 3px solid rgba(34, 197, 94, 0.6);
+  outline-offset: 3px;
+}
+
+/* Particle animations */
+@keyframes particleOut {
+  0% {
+    transform: translate(0, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx, 120px), calc(var(--dy, -30px) - 50%)) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes particleIn {
+  0% {
+    transform: translate(var(--dx, 120px), calc(var(--dy, -30px) - 50%)) scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Mobile placement */
+@media (max-width: 768px) {
+  .wrapper {
+    left: 16px;
+    top: auto;
+    bottom: 16px;
+
+    width: 210px;
+    height: 54px;
+  }
+
+  .floatingDonateBtn {
+    left: 16px;
+    top: auto;
+    bottom: 16px;
+
+    width: 210px;
+    height: 54px;
+  }
+}
+
+/* (Optional) If you still want pulse, keep it - it will pause during effects */
+@keyframes donatePulse {
+  0% { transform: translateY(0) scale(1); }
+  1.5% { transform: translateY(-1px) scale(1.02); }
+  3% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.floatingDonateBtn {
+  animation: donatePulse 10s ease-in-out infinite;
+}
+
+.floatingDonateBtn:hover {
+  animation-play-state: paused;
+}

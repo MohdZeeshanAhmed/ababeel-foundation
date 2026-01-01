@@ -1,0 +1,115 @@
+/* GLOBAL: remove default margins + prevent horizontal scroll */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Better box-sizing for responsiveness */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* App shell */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f4f6fb;
+  color: #0f172a;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0;
+  width: 100%;
+}
+
+/* ✅ container helper: FULL WIDTH NOW (no max-width) */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  /* responsive side padding (mobile -> desktop) */
+  padding-left: clamp(12px, 3vw, 28px);
+  padding-right: clamp(12px, 3vw, 28px);
+}
+
+/* Typography helpers */
+.section-title {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.section-subtitle {
+  color: #475569;
+  margin: 0 0 1.25rem 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  background: rgba(22, 163, 74, 0.12);
+  color: #14532d;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid transparent;
+}
+
+.btn.primary {
+  background: #16a34a;
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(22, 163, 74, 0.22);
+}
+
+.btn.ghost {
+  background: transparent;
+  border-color: rgba(15, 23, 42, 0.22);
+  color: #0f172a;
+}
+
+.btn.link {
+  padding: 0.7rem 0.25rem;
+  color: #0c4a6e;
+}
+
+/* Generic page spacing */
+.page {
+  padding: 2.25rem 0 3rem;
+}
+
+/* Anchor scroll offset */
+[id] {
+  scroll-margin-top: 92px;
+}
+/* Centered content inside full-width sections */
+.content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 32px);
+  padding-right: clamp(16px, 4vw, 32px);
+}
+/* ✅ Wide sections: edge-to-edge but still with a little safe padding */
+.wide {
+  width: 100%;
+  margin: 0;
+  padding-left: clamp(12px, 2vw, 24px);
+  padding-right: clamp(12px, 2vw, 24px);
+}

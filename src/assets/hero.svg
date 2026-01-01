@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#0d3b66"/>
+      <stop offset="1" stop-color="#28a745"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="600" fill="url(#g)"/>
+  <g fill="#ffffff" font-family="sans-serif" font-size="48">
+    <text x="80" y="180">From a Vision to a Movement</text>
+    <text x="80" y="240" font-size="20">Empowering communities through healthcare, education & relief</text>
+  </g>
+</svg>

@@ -1,0 +1,104 @@
+.healthcard {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 1.25rem;
+  padding: 2rem 0 2.5rem 0;
+}
+
+.healthcard .section-title {
+  margin: 0.3rem 0 0.25rem 0;
+}
+
+.benefits {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1rem 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.benefits li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: #26354d;
+}
+
+.benefits li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #16a34a;
+  font-weight: 900;
+}
+
+.cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.card-panel {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 28px rgba(2, 6, 23, 0.06);
+  padding: 1.1rem;
+}
+
+.panel h3,
+.panel h4 {
+  margin: 0 0 0.45rem 0;
+}
+
+.panel p {
+  margin: 0 0 0.6rem 0;
+  color: #475569;
+}
+
+.panel-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(22, 163, 74, 0.08);
+  border: 1px solid rgba(22, 163, 74, 0.18);
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.panel-stat strong {
+  font-size: 1.35rem;
+  color: #166534;
+}
+
+.panel-stat span {
+  color: #475569;
+}
+
+.panel.secondary {
+  background: #0b1220;
+  color: #e9f1ff;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.panel.secondary ol {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #dbe5ff;
+}
+
+.panel.secondary li + li {
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .healthcard {
+    grid-template-columns: 1fr;
+  }
+}
+
