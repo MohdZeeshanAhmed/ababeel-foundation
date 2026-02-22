@@ -1,0 +1,86 @@
+.contact-page .simple-head {
+  margin-bottom: 1.65rem;
+}
+
+.contact-grid {
+  margin-top: 1.4rem;
+  gap: 1rem;
+}
+
+.contact-card {
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contact-card h2 {
+  margin-bottom: 0.35rem;
+}
+
+.contact-card a {
+  line-height: 1.6;
+}
+
+.contact-social-card {
+  margin-top: 1.1rem;
+}
+
+.contact-social-icons {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.contact-social-icons a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: #fff;
+  color: #0f172a;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.contact-social-icons a svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-social-icons a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(22, 163, 74, 0.35);
+  background: rgba(22, 163, 74, 0.08);
+  color: #166534;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .contact-card {
+    min-height: auto;
+  }
+
+  .contact-social-icons a {
+    width: 38px;
+    height: 38px;
+  }
+
+  .contact-social-icons a svg {
+    width: 18px;
+    height: 18px;
+  }
+}

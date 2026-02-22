@@ -1,72 +1,102 @@
+import { Link } from 'react-router-dom'
 import './About.css'
 
 import { site } from '../site'
-import aboutImg from '../assets/hero5.jpg'
+import aboutImg from '../assets/about-team-field.jpeg'
 
-const pillars = [
-  {
-    title: 'Our Journey',
-    text: 'Founded in 2018 by Mr. SM Mustafa Ahmed, Ababeel Foundation grew from personal tragedy into a movement for dignified healthcare.',
-  },
-  {
-    title: 'Our Mission',
-    text: 'Make healthcare accessible and affordable for underprivileged and middle-class families, reducing financial burdens.',
-  },
-  {
-    title: 'Our Vision',
-    text: 'Build a healthcare ecosystem where no one suffers because care is inaccessible or unaffordable.',
-  },
+type AboutProps = {
+  headingLevel?: 'h1' | 'h2'
+}
+
+const approach = ['Community-based', 'Education-first model', 'Dignity, not dependency', 'Accountability and follow-up']
+const values = [
+  'Education as empowerment',
+  'Transparency & trust',
+  'Compassion with accountability',
+  'Long-term impact',
 ]
 
-export default function About() {
+export default function About({ headingLevel = 'h2' }: AboutProps) {
+  const HeadingTag = headingLevel
+
   return (
     <section id="about" className="about container" aria-label={`About ${site.name}`}>
       <div className="about-main">
         <div className="about-image">
-          <img src={aboutImg} alt={`${site.name} in action`} loading="lazy" />
+          <img src={aboutImg} alt="Ababeel Foundation team and field activity" loading="lazy" />
         </div>
 
         <div className="about-copy">
-          <p className="eyebrow">About Us</p>
-          <h2 className="section-title">My Personal Story that Give Health To A Mission</h2>
+          <HeadingTag className="section-title">Who We Are</HeadingTag>
           <p className="section-subtitle">
-            Founded in 2018 by Mr. SM Mustafa Ahmed, the Ababeel Foundation emerged from a deeply personal tragedy and
-            grew into a mission to provide affordable healthcare and support to underprivileged families.
+            Ababeel Foundation - started in 2024 - is a grassroots nonprofit initiative focused on empowering
+            marginalized families by addressing the root causes of poverty - lack of education, healthcare, nutrition,
+            and sustainable income.
           </p>
 
-          <div className="impact-grid">
-            <div>
-              <strong>37,000</strong>
-              <span>Families impacted</span>
-            </div>
-            <div>
-              <strong>₹19.25 Cr</strong>
-              <span>Total annual benefit</span>
-            </div>
-            <div>
-              <strong>150</strong>
-              <span>Patients served each health camp</span>
-            </div>
-          </div>
+          <h3>Why We Exist</h3>
+          <p className="section-subtitle">
+            Many families discontinue their children&apos;s education due to financial stress, health issues, or lack of
+            awareness. Ababeel Foundation intervenes by supporting the entire family, not just the child.
+          </p>
 
-          <div className="cta-row">
-            <a className="btn primary" href={site.cardUrl}>
-              Get a Card
-            </a>
-            <a className="btn ghost" href={site.contactUrl}>
-              Contact Us
-            </a>
+          <div className="about-extra" aria-label="About highlights">
+            <h3>At a Glance</h3>
+            <ul>
+              <li>Started in 2024 as a grassroots nonprofit.</li>
+              <li>Focused on education, health, nutrition and sustainable income.</li>
+              <li>Community-led support for families and children.</li>
+            </ul>
+            <div className="about-actions">
+              <Link className="btn primary" to="/projects">
+                Explore Our Projects
+              </Link>
+              <Link className="btn ghost" to="/get-involved">
+                Get Involved
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="pillars">
-        {pillars.map((p) => (
-          <div key={p.title} className="pillar">
-            <h3>{p.title}</h3>
-            <p>{p.text}</p>
-          </div>
-        ))}
+        <div className="pillar">
+          <h3>Our Approach</h3>
+          <ul>
+            {approach.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="pillar">
+          <h3>Vision</h3>
+          <p>
+            A society where every child learns, every family is healthy and every individual has the skills to earn
+            with dignity.
+          </p>
+        </div>
+        <div className="pillar">
+          <h3>Mission</h3>
+          <p>
+            To enable education, health access and livelihood opportunities for underprivileged communities through
+            sustainable, ethical and community-led programs.
+          </p>
+        </div>
+        <div className="pillar">
+          <h3>Core Values</h3>
+          <ul>
+            {values.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="pillars" id="awards">
+        <div className="pillar">
+          <h3>Awards and Recognition</h3>
+          <p>This section highlights recognitions and partner acknowledgements earned by {site.name}.</p>
+        </div>
       </div>
     </section>
   )

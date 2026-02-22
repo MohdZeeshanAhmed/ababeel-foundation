@@ -1,16 +1,22 @@
 import { useEffect, useMemo, useState } from 'react'
 import './Gallery.css'
 
-import hero1 from '../assets/hero1.jpg'
-import hero2 from '../assets/hero2.jpg'
-import hero3 from '../assets/hero3.jpg'
-import hero4 from '../assets/hero4.jpg'
-import hero5 from '../assets/hero5.jpg'
-import hero6 from '../assets/hero6.jpg'
+import hero1 from '../assets/gallery-1.jpeg'
+import hero2 from '../assets/gallery-2.jpeg'
+import hero3 from '../assets/gallery-3.jpeg'
+import hero4 from '../assets/gallery-4.jpeg'
+import hero5 from '../assets/gallery-5.jpeg'
+import hero6 from '../assets/home-hero-3.jpeg'
 
 type GalleryItem = { src: string; alt: string }
 
-export default function Gallery() {
+type GalleryProps = {
+  headingLevel?: 'h1' | 'h2'
+}
+
+export default function Gallery({ headingLevel = 'h2' }: GalleryProps) {
+  const HeadingTag = headingLevel
+
   const items: GalleryItem[] = useMemo(
     () => [
       { src: hero1, alt: 'Ababeel Foundation community work' },
@@ -38,7 +44,7 @@ export default function Gallery() {
     <section id="gallery" className="gallery content" aria-label="Gallery">
       <div className="section-head">
         <p className="eyebrow">Gallery</p>
-        <h2 className="section-title">Moments from the field</h2>
+        <HeadingTag className="section-title">Moments from the field</HeadingTag>
         <p className="section-subtitle">A glimpse into camps, outreach programs, and community support initiatives.</p>
       </div>
 
@@ -49,7 +55,7 @@ export default function Gallery() {
             type="button"
             className="tile"
             onClick={() => setActive(img)}
-            aria-label="Open image"
+            aria-label={`Open image: ${img.alt}`}
           >
             <img src={img.src} alt={img.alt} loading="lazy" />
           </button>

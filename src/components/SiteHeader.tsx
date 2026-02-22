@@ -12,35 +12,25 @@ type NavItem =
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  // =======================
-  // ✅ ADDED: helper to trigger particle animation before navigation
-  // =======================
-  const triggerDonateNavigate = (to: string) => {
-    window.dispatchEvent(new CustomEvent('ababeel:donateNavigate', { detail: { to } }))
-  }
-
   const items: NavItem[] = useMemo(
     () => [
       { kind: 'link', to: '/', label: 'Home' },
       { kind: 'link', to: '/about', label: 'About Us' },
       {
         kind: 'dropdown',
-        label: 'Our Services',
+        label: 'Our Projects',
         items: [
-          { to: '/services/healthcare', label: 'Healthcare' },
-          { to: '/services/finance', label: 'Finance' },
-          { to: '/services/education', label: 'Education' },
-          { to: '/services/urgent-relief', label: 'Urgent Relief' },
-          { to: '/services/social-welfare', label: 'Social Welfare' },
-          { to: '/services/food-distribution', label: 'Food Distribution' },
-          { to: '/services/blanket-distribution', label: 'Blanket Distribution' },
+          { to: '/projects', label: 'All Projects' },
+          { to: '/services/shama', label: 'SHAMA' },
+          { to: '/services/manna-salwa', label: 'MANNA SALWA' },
+          { to: '/services/medical-camps', label: 'Medical Camps' },
+          { to: '/services/hunar', label: 'HUNAR' },
         ],
       },
+      { kind: 'link', to: '/founders', label: 'Founders' },
       { kind: 'link', to: '/gallery', label: 'Gallery' },
-      { kind: 'link', to: '/contact', label: 'Contact' },
-      { kind: 'link', to: '/donate', label: 'Donate' }, // ← Donate handled specially
-      { kind: 'link', to: '/doctors-meet', label: 'Ababeel Doctors Meet' },
-      { kind: 'link', to: '/privacy-policy', label: 'Privacy Policy' },
+      { kind: 'link', to: '/get-involved', label: 'Get Involved' },
+      { kind: 'link', to: '/contact', label: 'Contact Us' },
     ],
     [],
   )
@@ -55,20 +45,8 @@ export default function SiteHeader() {
         <nav className="nav desktop" aria-label="Main">
           {items.map((item) => {
             if (item.kind === 'link') {
-              const isDonate = item.to === '/donate'
-
               return (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  onClick={(e) => {
-                    if (isDonate) {
-                      e.preventDefault() // stop instant navigation
-                      triggerDonateNavigate('/donate') // 🔥 trigger particle vanish
-                    }
-                  }}
-                  className={({ isActive }) => (isActive ? 'active' : '')}
-                >
+                <NavLink key={item.to} to={item.to} className={({ isActive }) => (isActive ? 'active' : '')}>
                   {item.label}
                 </NavLink>
               )
@@ -97,8 +75,8 @@ export default function SiteHeader() {
         </nav>
 
         <div className="actions">
-          <Link className="cta" to={site.cardUrl}>
-            Get A Card
+          <Link className="cta" to={site.donateUrl}>
+            Donate Now
           </Link>
           <button
             type="button"
@@ -127,20 +105,8 @@ export default function SiteHeader() {
             <div className="mobile-links">
               {items.map((item) => {
                 if (item.kind === 'link') {
-                  const isDonate = item.to === '/donate'
-
                   return (
-                    <NavLink
-                      key={item.to}
-                      to={item.to}
-                      onClick={(e) => {
-                        setMobileOpen(false)
-                        if (isDonate) {
-                          e.preventDefault()
-                          triggerDonateNavigate('/donate') // 🔥 particle vanish on mobile
-                        }
-                      }}
-                    >
+                    <NavLink key={item.to} to={item.to} onClick={() => setMobileOpen(false)}>
                       {item.label}
                     </NavLink>
                   )
@@ -160,8 +126,8 @@ export default function SiteHeader() {
             </div>
 
             <div className="mobile-footer">
-              <Link className="cta full" to={site.cardUrl}>
-                Get A Card
+              <Link className="cta full" to={site.donateUrl}>
+                Donate Now
               </Link>
               <a className="secondary" href={`mailto:${site.email}`}>
                 {site.email}

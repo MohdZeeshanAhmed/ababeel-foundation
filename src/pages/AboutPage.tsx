@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <>
       <div className="page">
-        <About />
+        <About headingLevel='h1' />
       </div>
       <Footer />
     </>

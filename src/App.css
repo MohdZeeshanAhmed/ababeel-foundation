@@ -1,115 +1,148 @@
-/* GLOBAL: remove default margins + prevent horizontal scroll */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Better box-sizing for responsiveness */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* App shell */
 .app-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #f4f6fb;
-  color: #0f172a;
+  background: transparent;
+  color: var(--text);
   width: 100%;
 }
 
 .main-content {
   flex: 1;
-  padding: 0;
+  padding: 0 0 5.8rem;
   width: 100%;
 }
 
-/* ✅ container helper: FULL WIDTH NOW (no max-width) */
 .container {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  /* responsive side padding (mobile -> desktop) */
-  padding-left: clamp(12px, 3vw, 28px);
-  padding-right: clamp(12px, 3vw, 28px);
+  width: min(1180px, 100%);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 32px);
 }
 
-/* Typography helpers */
-.section-title {
-  font-size: 2rem;
-  margin: 0 0 0.5rem 0;
-}
-
-.section-subtitle {
-  color: #475569;
-  margin: 0 0 1.25rem 0;
-}
-
-.eyebrow {
-  display: inline-block;
-  padding: 0.2rem 0.75rem;
-  background: rgba(22, 163, 74, 0.12);
-  color: #14532d;
-  border-radius: 999px;
-  font-weight: 700;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.7rem 1.1rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-  border: 1px solid transparent;
-}
-
-.btn.primary {
-  background: #16a34a;
-  color: #fff;
-  box-shadow: 0 14px 28px rgba(22, 163, 74, 0.22);
-}
-
-.btn.ghost {
-  background: transparent;
-  border-color: rgba(15, 23, 42, 0.22);
-  color: #0f172a;
-}
-
-.btn.link {
-  padding: 0.7rem 0.25rem;
-  color: #0c4a6e;
-}
-
-/* Generic page spacing */
-.page {
-  padding: 2.25rem 0 3rem;
-}
-
-/* Anchor scroll offset */
-[id] {
-  scroll-margin-top: 92px;
-}
-/* Centered content inside full-width sections */
 .content {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(16px, 4vw, 32px);
-  padding-right: clamp(16px, 4vw, 32px);
+  width: min(1180px, 100%);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 32px);
 }
-/* ✅ Wide sections: edge-to-edge but still with a little safe padding */
+
 .wide {
   width: 100%;
   margin: 0;
   padding-left: clamp(12px, 2vw, 24px);
   padding-right: clamp(12px, 2vw, 24px);
+}
+
+.page {
+  padding: clamp(2rem, 4vw, 3.2rem) 0 clamp(2.4rem, 4.5vw, 3.8rem);
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3.2vw, 2.55rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.55rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+  line-height: 1.7;
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.28rem 0.8rem;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: #166534;
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.74rem 1.18rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid transparent;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease, border-color 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  background: linear-gradient(145deg, #22c55e, #16a34a 55%, #15803d);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(22, 163, 74, 0.24);
+}
+
+.btn.primary:hover {
+  filter: brightness(1.04);
+}
+
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(15, 23, 42, 0.24);
+  color: var(--text);
+}
+
+.btn.link {
+  padding: 0.6rem 0;
+  color: #0c4a6e;
+  border-radius: 0;
+  font-weight: 700;
+}
+
+.btn.link:hover {
+  transform: none;
+  color: #0b5d88;
+}
+
+[id] {
+  scroll-margin-top: 96px;
+}
+
+.page,
+.services,
+.about,
+.gallery,
+.site-footer {
+  animation: sectionFadeIn 0.5s ease both;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    padding-bottom: 5rem;
+  }
 }

@@ -1,27 +1,24 @@
-/* Wrapper for alignment (button is fixed; wrapper matches it) */
 .wrapper {
   position: fixed;
-  left: 0px;
+  left: 0;
   top: 430px;
 
-  width: 220px;
-  height: 56px;
+  width: 178px;
+  height: 54px;
 
-  z-index: 2147483647;
+  z-index: 80;
   pointer-events: none;
 }
 
-/* Particle layer */
 .particles {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-/* Particle dot */
 .particle {
   position: absolute;
-  left: 20px;
+  left: 18px;
   top: 50%;
 
   border-radius: 999px;
@@ -31,35 +28,30 @@
   opacity: 0;
 }
 
-/* Particles out */
 .disintegrating .particle {
   opacity: 1;
   animation: particleOut 520ms ease forwards;
   animation-delay: var(--dly, 0ms);
 }
 
-/* Particles in */
 .assembling .particle {
   opacity: 1;
   animation: particleIn 520ms ease forwards;
   animation-delay: var(--dly, 0ms);
 }
 
-/* ✅ Ensure normal state always shows the button */
 .shown .floatingDonateBtn {
   opacity: 1;
   transform: none;
   filter: none;
 }
 
-/* ✅ Pause pulse during effects */
 .disintegrating .floatingDonateBtn,
 .assembling .floatingDonateBtn {
   animation-play-state: paused;
   will-change: transform, opacity;
 }
 
-/* ✅ Button dissolves during disintegrate */
 .disintegrating .floatingDonateBtn {
   opacity: 0;
   transform: scale(0.92);
@@ -67,7 +59,6 @@
   transition: opacity 520ms ease, transform 520ms ease, filter 520ms ease;
 }
 
-/* ✅ Button comes back during assemble */
 .assembling .floatingDonateBtn {
   opacity: 1;
   transform: scale(1);
@@ -75,42 +66,40 @@
   transition: opacity 520ms ease, transform 520ms ease, filter 520ms ease;
 }
 
-/* Your button styles (KEEP colourful) */
 .floatingDonateBtn {
   position: fixed;
-  left: 0px;
+  left: 0;
   top: 430px;
 
-  width: 220px;
-  height: 56px;
+  width: 178px;
+  height: 54px;
 
-  z-index: 2147483647;
+  z-index: 80;
 
   border: none;
-  border-radius: 0 14px 14px 04px;
+  border-radius: 0 14px 14px 0;
   cursor: pointer;
 
   color: #ffffff;
   background: linear-gradient(135deg, #0f766e 0%, #16a34a 100%);
 
-  box-shadow: 0 10px 28px rgba(15, 118, 110, 0.35);
+  box-shadow: 0 12px 30px rgba(15, 118, 110, 0.35);
   transition: transform 160ms ease, box-shadow 160ms ease;
 
   pointer-events: auto;
 }
 
-/* Layout inside */
 .inner {
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 14px;
-  gap: 12px;
+  padding: 0 10px;
+  gap: 8px;
 }
 
 .iconBox {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 
   display: flex;
   align-items: center;
@@ -118,34 +107,42 @@
 
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  flex: 0 0 auto;
+}
 
-  font-size: 18px;
+.iconBox svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2px;
+  justify-content: center;
+  min-width: 0;
   flex: 1;
 }
 
 .title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .sub {
-  font-size: 11px;
-  opacity: 0.9;
+  display: none;
 }
 
 .chev {
-  font-size: 18px;
+  font-size: 16px;
   opacity: 0.85;
   transform: translateX(0);
   transition: transform 160ms ease;
+  flex: 0 0 auto;
 }
 
 .floatingDonateBtn:hover {
@@ -162,7 +159,6 @@
   outline-offset: 3px;
 }
 
-/* Particle animations */
 @keyframes particleOut {
   0% {
     transform: translate(0, -50%) scale(1);
@@ -188,28 +184,31 @@
   }
 }
 
-/* Mobile placement */
 @media (max-width: 768px) {
   .wrapper {
-    left: 16px;
+    left: 12px;
     top: auto;
-    bottom: 16px;
+    bottom: 12px;
 
-    width: 210px;
-    height: 54px;
+    width: 158px;
+    height: 48px;
   }
 
   .floatingDonateBtn {
-    left: 16px;
+    left: 12px;
     top: auto;
-    bottom: 16px;
+    bottom: 12px;
 
-    width: 210px;
-    height: 54px;
+    width: 158px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 12px;
   }
 }
 
-/* (Optional) If you still want pulse, keep it - it will pause during effects */
 @keyframes donatePulse {
   0% { transform: translateY(0) scale(1); }
   1.5% { transform: translateY(-1px) scale(1.02); }

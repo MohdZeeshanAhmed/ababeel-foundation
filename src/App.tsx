@@ -14,6 +14,10 @@ import ServicePage from './pages/ServicePage'
 import DoctorsMeetPage from './pages/DoctorsMeetPage'
 import DonatePage from './pages/DonatePage'
 import FloatingDonateButton from './components/FloatingDonateButton'
+import FloatingSocialBar from './components/FloatingSocialBar'
+import ProjectsPage from './pages/ProjectsPage'
+import FoundersPage from './pages/FoundersPage'
+import GetInvolvedPage from './pages/GetInvolvedPage'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -39,20 +43,26 @@ function Shell() {
   return (
     <div className="app-shell">
       <SiteHeader />
-        <FloatingDonateButton />
+      <FloatingDonateButton />
+      <FloatingSocialBar />
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/our-projects" element={<ProjectsPage />} />
           <Route path="/services/:slug" element={<ServicePage />} />
+          <Route path="/founders" element={<FoundersPage />} />
+          <Route path="/members" element={<FoundersPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/get-involved" element={<GetInvolvedPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/donate" element={<DonatePage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/doctors-meet" element={<DoctorsMeetPage />} />
           <Route path="/mhf-doctors-meet" element={<DoctorsMeetPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/donete"element={<DonatePage />} />
+          <Route path="/donete" element={<DonatePage />} />
         </Routes>
       </main>
     </div>

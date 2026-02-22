@@ -5,7 +5,7 @@ export default function GalleryPage() {
   return (
     <>
       <div className="page">
-        <Gallery />
+        <Gallery headingLevel='h1' />
       </div>
       <Footer />
     </>

@@ -12,45 +12,8 @@ function Icon({ children }: { children: ReactNode }) {
 
 const items: Array<{ title: string; icon: ReactNode; desc: string; href: string }> = [
   {
-    title: 'Healthcare',
-    href: '/services/healthcare',
-    icon: (
-      <Icon>
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-          <path
-            d="M3.5 12a8.5 8.5 0 0 1 17 0v6a2.5 2.5 0 0 1-2.5 2.5h-2A2.5 2.5 0 0 1 13.5 18v-2.5M10.5 15.5V18A2.5 2.5 0 0 1 8 20.5H6A2.5 2.5 0 0 1 3.5 18z"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path d="M12 7v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <path d="M9 10h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      </Icon>
-    ),
-    desc: 'Partner hospitals, clinics and diagnostics providing accessible, affordable care.',
-  },
-  {
-    title: 'Finance',
-    href: '/services/finance',
-    icon: (
-      <Icon>
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-          <path
-            d="M6 7h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-          <path d="M8 12h.01" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-          <path d="M12 12h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      </Icon>
-    ),
-    desc: 'Support through financial aid, repayments, and stability for families in need.',
-  },
-  {
-    title: 'Education',
-    href: '/services/education',
+    title: 'Education Support – SHAMA',
+    href: '/services/shama',
     icon: (
       <Icon>
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
@@ -70,47 +33,11 @@ const items: Array<{ title: string; icon: ReactNode; desc: string; href: string 
         </svg>
       </Icon>
     ),
-    desc: 'Fee support and education initiatives that keep students learning and thriving.',
+    desc: 'Exam support, guidance and mentorship to keep learners in education.',
   },
   {
-    title: 'Urgent Relief',
-    href: '/services/urgent-relief',
-    icon: (
-      <Icon>
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-          <path
-            d="M12 2 2.5 20h19L12 2Z"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinejoin="round"
-          />
-          <path d="M12 9v5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <path d="M12 17h.01" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-        </svg>
-      </Icon>
-    ),
-    desc: 'Rapid support during emergencies and disasters with essentials and care.',
-  },
-  {
-    title: 'Social Welfare',
-    href: '/services/social-welfare',
-    icon: (
-      <Icon>
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-          <path
-            d="M12 21s-7-4.4-9.3-9C1 8.5 3.2 6 6 6c1.6 0 3.1.9 4 2.2C10.9 6.9 12.4 6 14 6c2.8 0 5 2.5 3.3 6-2.3 4.6-9.3 9-9.3 9Z"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </Icon>
-    ),
-    desc: 'Food and essential aid programs supporting vulnerable communities.',
-  },
-  {
-    title: 'Food Distribution',
-    href: '/services/food-distribution',
+    title: 'Food Security – MANNA SALWA',
+    href: '/services/manna-salwa',
     icon: (
       <Icon>
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
@@ -127,11 +54,30 @@ const items: Array<{ title: string; icon: ReactNode; desc: string; href: string 
         </svg>
       </Icon>
     ),
-    desc: 'Nutrition drives and meal support for vulnerable communities.',
+    desc: 'Grocery support linked with a family commitment to children\'s education.',
   },
   {
-    title: 'Blanket Distribution',
-    href: '/services/blanket-distribution',
+    title: 'Medical Camps',
+    href: '/services/medical-camps',
+    icon: (
+      <Icon>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+          <path
+            d="M3.5 12a8.5 8.5 0 0 1 17 0v6a2.5 2.5 0 0 1-2.5 2.5h-2A2.5 2.5 0 0 1 13.5 18v-2.5M10.5 15.5V18A2.5 2.5 0 0 1 8 20.5H6A2.5 2.5 0 0 1 3.5 18z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path d="M12 7v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <path d="M9 10h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </Icon>
+    ),
+    desc: 'Free checkups, screening, medicines and preventive health awareness.',
+  },
+  {
+    title: 'Skill Development – HUNAR',
+    href: '/services/hunar',
     icon: (
       <Icon>
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
@@ -146,7 +92,7 @@ const items: Array<{ title: string; icon: ReactNode; desc: string; href: string 
         </svg>
       </Icon>
     ),
-    desc: 'Seasonal winter outreach to keep families warm and safe.',
+    desc: 'Vocational and business skills for self-reliance and dignified livelihoods.',
   },
 ]
 
@@ -155,9 +101,9 @@ export default function Services() {
     <section id="services" className="services content">
       <div className="section-head">
         <p className="eyebrow">What We Do</p>
-        <h2 className="section-title">Our Services</h2>
+        <h2 className="section-title">Focused Programs For Lasting Impact</h2>
         <p className="section-subtitle">
-          We support communities through healthcare, education, urgent relief and long-term welfare initiatives.
+          Ababeel Foundation operates focused programs that address education, nutrition, health and employable skills.
         </p>
       </div>
       <div className="grid">

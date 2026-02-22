@@ -1,0 +1,80 @@
+.floating-social {
+  position: fixed;
+  right: 12px;
+  bottom: 14px;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 12px 28px rgba(2, 6, 23, 0.22);
+  border-radius: 12px;
+  background: rgba(11, 18, 32, 0.72);
+  backdrop-filter: blur(6px);
+  padding: 6px;
+}
+
+.social-item {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 10px;
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+.social-item svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-item:hover {
+  transform: translateX(-2px);
+  filter: brightness(1.08);
+}
+
+.social-item:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.social-item.x {
+  background: #111827;
+}
+
+.social-item.facebook {
+  background: #1877f2;
+}
+
+.social-item.youtube {
+  background: #ff3b30;
+}
+
+.social-item.instagram {
+  background: linear-gradient(135deg, #f58529, #dd2a7b 50%, #8134af 85%);
+}
+
+.social-item.linkedin {
+  background: #0a66c2;
+}
+
+@media (max-width: 900px) {
+  .floating-social {
+    right: 8px;
+    bottom: 10px;
+    padding: 5px;
+    gap: 5px;
+  }
+
+  .social-item {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
+
+  .social-item svg {
+    width: 16px;
+    height: 16px;
+  }
+}

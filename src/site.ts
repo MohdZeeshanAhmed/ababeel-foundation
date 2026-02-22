@@ -1,15 +1,23 @@
 export const site = {
   name: 'Ababeel Foundation',
-  tagline: 'Service to humanity',
+  tagline:
+    'Assisting in Basic Aid, Betterment and Education for Economically weak and Less privileged',
   email: 'ababeelfoundationindia@gmail.com',
-  phoneDisplay: '+91 7702 276 976',
-  phoneHref: 'tel:+917702276976',
-  address:
-    '#6-3-1240/219/4, 3rd Floor, M.S Maqtha, Raj Bhavan, Somajiguda, Hyderabad, Telangana - 500082',
+  phoneDisplay: '+91',
+  phoneHref: 'tel:+91',
+  address: 'Flat no:101, Ilyas Residency, Nawab Sahab Kunta, Hyderabad',
   mapUrl: 'https://maps.app.goo.gl/zPFCEW3pcoYaT1X39',
-  cardUrl: '/#card',
+  cardUrl: '/projects',
   contactUrl: '/contact',
   donateUrl: '/donate',
+  projectsUrl: '/projects',
+  getInvolvedUrl: '/get-involved',
+  social: {
+    instagram: '#',
+    facebook: '#',
+    linkedin: '#',
+    youtube: '#',
+  },
   donation: {
     upiId: 'ababeelfoundation1@okhdfcbank',
     phonePeGpay: '8247618694',

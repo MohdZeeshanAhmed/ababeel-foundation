@@ -12,33 +12,20 @@ export default function Footer() {
           <Link to="/" className="footer-logo" aria-label="Home">
             <img src={logo} alt={site.name} />
           </Link>
-          <p className="footer-text">
-            {site.name} is dedicated to serving communities through healthcare access, education support, urgent relief,
-            and social welfare initiatives.
-          </p>
-          <Link className="footer-donate" to={site.donateUrl}>
-            Donate Now
+          <p className="footer-text">{site.tagline}</p>
+          <Link className="footer-donate" to={site.getInvolvedUrl}>
+            Get Involved
           </Link>
         </div>
 
         <div className="footer-col">
-          <h3>Links</h3>
+          <h3>Footer Links</h3>
           <Link to="/">Home</Link>
           <Link to="/about">About Us</Link>
-          <Link to={site.donateUrl}>Donate Now</Link>
+          <Link to="/projects">Our Projects</Link>
+          <Link to="/members">Members</Link>
+          <Link to="/gallery">Gallery</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-        </div>
-
-        <div className="footer-col">
-          <h3>Our Services</h3>
-          <Link to="/services/healthcare">Healthcare</Link>
-          <Link to="/services/finance">Finance</Link>
-          <Link to="/services/education">Education</Link>
-          <Link to="/services/urgent-relief">Urgent Relief</Link>
-          <Link to="/services/social-welfare">Social Welfare</Link>
-          <Link to="/services/food-distribution">Food Distribution</Link>
-          <Link to="/services/blanket-distribution">Blanket Distribution</Link>
         </div>
 
         <div className="footer-col">
@@ -49,13 +36,27 @@ export default function Footer() {
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <a href={site.phoneHref}>{site.phoneDisplay}</a>
         </div>
+
+        <div className="footer-col">
+          <h3>Social Media</h3>
+          <a href={site.social.instagram} target="_blank" rel="noreferrer">
+            Instagram
+          </a>
+          <a href={site.social.facebook} target="_blank" rel="noreferrer">
+            Facebook
+          </a>
+          <a href={site.social.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a href={site.social.youtube} target="_blank" rel="noreferrer">
+            Youtube
+          </a>
+        </div>
       </div>
 
       <div className="content footer-bottom">
-        <span>{'\u00A9'} {new Date().getFullYear()} {site.name}. All rights reserved.</span>
-        <a href="/#home" className="backtotop">
-          Back to top
-        </a>
+        <span>© Ababeel Foundation. All rights reserved.</span>
+        <span>{site.tagline}</span>
       </div>
     </footer>
   )
