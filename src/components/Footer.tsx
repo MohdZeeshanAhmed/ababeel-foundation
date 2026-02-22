@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="site-footer" aria-label="Footer">
       <div className="content footer-top">
-        <div className="footer-col about">
+        <div className="footer-col footer-about">
           <Link to="/" className="footer-logo" aria-label="Home">
             <img src={logo} alt={site.name} />
           </Link>

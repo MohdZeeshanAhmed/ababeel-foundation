@@ -20,6 +20,10 @@
   color: #fff;
 }
 
+.footer-about {
+  padding: 0;
+}
+
 .footer-col a {
   display: block;
   color: #dbe5ff;
