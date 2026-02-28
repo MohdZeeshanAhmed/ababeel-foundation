@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './Footer.css'
 
 import { site } from '../site'
-import logo from '../assets/AbabeelFoundation_Logo.jpg'
+import logo from '../assets/footer-logo-new.png'
 
 export default function Footer() {
   return (
@@ -39,6 +39,9 @@ export default function Footer() {
 
         <div className="footer-col">
           <h3>Social Media</h3>
+          <a href={site.social.whatsapp} target="_blank" rel="noreferrer">
+            WhatsApp
+          </a>
           <a href={site.social.instagram} target="_blank" rel="noreferrer">
             Instagram
           </a>

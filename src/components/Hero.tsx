@@ -36,7 +36,7 @@ const slides: HeroSlide[] = [
   {
     title: 'Together, we can create lasting change.',
     subtitle:
-      'From SHAMA and MANNA SALWA to Medical Camps and HUNAR, every program is built to deliver long-term impact for families.',
+      'From SHAMA and MANNA SALWA to SEHAT and HUNAR, every program is built to deliver long-term impact for families.',
     badge: 'Sustainable and community-led programs',
     primary: { label: 'Get Involved', href: '/get-involved' },
     secondary: { label: 'Contact Us', href: '/contact' },

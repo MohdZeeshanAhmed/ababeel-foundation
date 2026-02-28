@@ -38,9 +38,12 @@
 }
 
 .footer-logo img {
-  height: 58px;
+  height: 84px;
   width: auto;
-  border-radius: 10px;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 3px;
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.35);
 }
 
 .footer-text {

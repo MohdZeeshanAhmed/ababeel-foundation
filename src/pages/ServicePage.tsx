@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import Footer from '../components/Footer'
+import hunarLogo from '../assets/hunar-logo.png'
 import { projectBySlug } from '../data/projects'
 import { site } from '../site'
 import './SimplePage.css'
@@ -29,8 +30,20 @@ export default function ServicePage() {
       <section className="page container simple-page" aria-label="Project details">
         <header className="simple-head">
           <p className="eyebrow">Our Projects</p>
-          <h1 className="simple-title">{project?.title ?? 'Project'}</h1>
-          <p className="simple-subtitle">{project?.about ?? 'This project page is not available.'}</p>
+          {project?.slug === 'hunar' ? (
+            <div className="simple-title-with-logo">
+              <img className="simple-title-logo" src={hunarLogo} alt="HUNAR by Ababeel Foundation" loading="lazy" />
+              <div className="simple-title-text">
+                <h1 className="simple-title">{project.title}</h1>
+                <p className="simple-subtitle">{project.about}</p>
+              </div>
+            </div>
+          ) : (
+            <>
+              <h1 className="simple-title">{project?.title ?? 'Project'}</h1>
+              <p className="simple-subtitle">{project?.about ?? 'This project page is not available.'}</p>
+            </>
+          )}
         </header>
 
         {project ? (

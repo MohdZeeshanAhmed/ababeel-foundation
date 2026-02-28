@@ -23,7 +23,7 @@ export default function SiteHeader() {
           { to: '/projects', label: 'All Projects' },
           { to: '/services/shama', label: 'SHAMA' },
           { to: '/services/manna-salwa', label: 'MANNA SALWA' },
-          { to: '/services/medical-camps', label: 'Medical Camps' },
+          { to: '/services/medical-camps', label: 'SEHAT' },
           { to: '/services/hunar', label: 'HUNAR' },
         ],
       },

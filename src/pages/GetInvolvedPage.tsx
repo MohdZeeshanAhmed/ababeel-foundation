@@ -5,7 +5,7 @@ const ways = [
   'Volunteer your time',
   'Sponsor a student',
   'Support a family',
-  'Partner for medical camps',
+  'Partner for SEHAT healthcare support',
   'Skill training collaborations',
 ]
 

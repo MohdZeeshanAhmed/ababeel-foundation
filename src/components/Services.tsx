@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import hunarLogo from '../assets/hunar-logo.png'
 import './Services.css'
 
 function Icon({ children }: { children: ReactNode }) {
@@ -57,7 +58,7 @@ const items: Array<{ title: string; icon: ReactNode; desc: string; href: string 
     desc: 'Grocery support linked with a family commitment to children\'s education.',
   },
   {
-    title: 'Medical Camps',
+    title: 'SEHAT – Affordable Treatment',
     href: '/services/medical-camps',
     icon: (
       <Icon>
@@ -73,23 +74,14 @@ const items: Array<{ title: string; icon: ReactNode; desc: string; href: string 
         </svg>
       </Icon>
     ),
-    desc: 'Free checkups, screening, medicines and preventive health awareness.',
+    desc: 'Supporting Every Human Affordable Treatment through camps, screening, medicines and awareness.',
   },
   {
     title: 'Skill Development – HUNAR',
     href: '/services/hunar',
     icon: (
       <Icon>
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-          <path
-            d="M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-          <path d="M9 7h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <path d="M9 11h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <path d="M9 15h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
+        <img className="service-icon-image" src={hunarLogo} alt="HUNAR logo" loading="lazy" />
       </Icon>
     ),
     desc: 'Vocational and business skills for self-reliance and dignified livelihoods.',

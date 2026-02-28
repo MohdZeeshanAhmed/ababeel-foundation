@@ -51,9 +51,10 @@ export const projects: Project[] = [
   },
   {
     slug: 'medical-camps',
-    title: 'Medical Camps',
-    shortDescription: 'Free medical camps providing checkups, basic medicines, and preventive health awareness.',
-    about: 'Ababeel Foundation conducts free medical camps to provide basic healthcare access to underserved communities.',
+    title: 'SEHAT – Supporting Every Human Affordable Treatment',
+    shortDescription: 'Affordable and accessible healthcare support through camps, screening, medicines, and awareness.',
+    about:
+      'SEHAT (Supporting Every Human Affordable Treatment) is Ababeel Foundation\'s healthcare initiative for underserved communities.',
     servicesTitle: 'Services Offered',
     services: ['General health checkups', 'Blood pressure & sugar screening', 'Basic medicines', 'Health education & lifestyle counselling'],
     highlightsTitle: 'Focus Areas',

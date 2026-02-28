@@ -35,6 +35,15 @@ export default function ContactPage() {
         <div className="simple-card contact-social-card">
           <h2>Social Media</h2>
           <div className="simple-social contact-social-icons" aria-label="Social media links">
+            <a href={site.social.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  fill="currentColor"
+                  d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.36-1.67a11.86 11.86 0 0 0 5.7 1.45h.01c6.57 0 11.91-5.34 11.91-11.9 0-3.18-1.24-6.17-3.46-8.4Zm-8.45 18.3h-.01a9.95 9.95 0 0 1-5.06-1.38l-.36-.21-3.77.99 1.01-3.67-.24-.38a9.95 9.95 0 0 1-1.53-5.31c0-5.49 4.47-9.96 9.96-9.96 2.66 0 5.16 1.04 7.04 2.92a9.9 9.9 0 0 1 2.92 7.04c0 5.49-4.47 9.96-9.96 9.96Z"
+                />
+              </svg>
+              <span className="sr-only">WhatsApp</span>
+            </a>
             <a href={site.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path

@@ -19,6 +19,37 @@
   font-size: clamp(1rem, 1.15vw, 1.08rem);
 }
 
+.simple-title-with-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.simple-title-text {
+  text-align: left;
+}
+
+.simple-title-with-logo .simple-title {
+  margin: 0 0 0.3rem;
+}
+
+.simple-title-text .simple-subtitle {
+  margin: 0;
+  max-width: 720px;
+}
+
+.simple-title-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  padding: 4px;
+}
+
 .simple-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -139,6 +170,20 @@
 @media (max-width: 760px) {
   .simple-grid {
     grid-template-columns: 1fr;
+  }
+
+  .simple-title-with-logo {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .simple-title-text {
+    text-align: center;
+  }
+
+  .simple-title-logo {
+    width: 110px;
+    height: 110px;
   }
 }
 
