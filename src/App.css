@@ -37,7 +37,7 @@
 }
 
 .section-title {
-  font-size: clamp(1.75rem, 3.2vw, 2.55rem);
+  font-size: clamp(1.65rem, 2.6vw, 2.2rem);
   line-height: 1.18;
   letter-spacing: -0.015em;
   margin: 0 0 0.55rem;
@@ -114,30 +114,14 @@
 }
 
 [data-reveal] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 700ms ease, transform 700ms ease;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 [data-reveal].revealed {
   opacity: 1;
-  transform: translateY(0);
-}
-
-[data-reveal='left'] {
-  transform: translateX(-22px);
-}
-
-[data-reveal='left'].revealed {
-  transform: translateX(0);
-}
-
-[data-reveal='right'] {
-  transform: translateX(22px);
-}
-
-[data-reveal='right'].revealed {
-  transform: translateX(0);
+  transform: none;
 }
 
 @keyframes sectionFadeIn {
@@ -184,7 +168,7 @@
   }
 
   .section-title {
-    font-size: clamp(1.45rem, 7vw, 1.95rem);
+    font-size: clamp(1.35rem, 6.4vw, 1.8rem);
     line-height: 1.2;
   }
 

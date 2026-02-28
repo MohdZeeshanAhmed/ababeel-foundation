@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Hero.css'
 
-import hero1 from '../assets/home-hero-1.jpeg'
-import hero2 from '../assets/home-hero-2.jpeg'
-import hero3 from '../assets/home-hero-3.jpeg'
+import hero1 from '../assets/home-hero-1.optimized.jpeg'
+import hero2 from '../assets/home-hero-2.optimized.jpeg'
+import hero3 from '../assets/home-hero-3.optimized.jpeg'
 
 type HeroSlide = {
   title: string
@@ -60,14 +60,19 @@ export default function Hero() {
   return (
     <section id="home" className="hero" aria-label="Homepage hero">
       <div className="carousel">
-        {slides.map((item, index) => (
-          <div
-            key={item.title}
-            className={`slide ${index === idx ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${item.background})` }}
-            aria-hidden={index !== idx}
-          />
-        ))}
+        {slides.map((item, index) => {
+          const len = slides.length
+          const shouldLoad = index === idx || index === (idx + 1) % len || index === (idx - 1 + len) % len
+
+          return (
+            <div
+              key={item.title}
+              className={`slide ${index === idx ? 'active' : ''}`}
+              style={{ backgroundImage: shouldLoad ? `url(${item.background})` : undefined }}
+              aria-hidden={index !== idx}
+            />
+          )
+        })}
 
         <div className="hero-content content" data-reveal="up">
           <span className="pill">{slide.badge}</span>

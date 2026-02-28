@@ -236,9 +236,9 @@
 }
 
 .floatingDonateBtn {
-  animation: donatePulse 10s ease-in-out infinite;
+  animation: none;
 }
 
 .floatingDonateBtn:hover {
-  animation-play-state: paused;
+  animation-play-state: running;
 }

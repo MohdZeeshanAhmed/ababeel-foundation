@@ -49,7 +49,7 @@ export default function Stats() {
   }, [])
 
   return (
-    <section id="impact" ref={rootRef} className="stats content" data-reveal="up">
+    <section id="impact" ref={rootRef} className="stats container" data-reveal="up">
       {metrics.map((m, i) => (
         <div key={m.label} className="stat">
           <div className="value">

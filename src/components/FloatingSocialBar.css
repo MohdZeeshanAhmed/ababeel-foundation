@@ -9,7 +9,6 @@
   box-shadow: 0 12px 28px rgba(2, 6, 23, 0.22);
   border-radius: 12px;
   background: rgba(11, 18, 32, 0.72);
-  backdrop-filter: blur(6px);
   padding: 6px;
 }
 
