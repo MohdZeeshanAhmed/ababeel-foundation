@@ -50,9 +50,10 @@
 .hero-content h1 {
   font-size: clamp(2rem, 4.4vw, 4rem);
   margin: 0.4rem 0 0.45rem;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   text-wrap: balance;
+  max-width: 100%;
 }
 
 .hero .lead {
@@ -79,6 +80,7 @@
   color: #a7f3d0;
   font-weight: 700;
   letter-spacing: 0.2px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .hero .btn.ghost {
@@ -105,10 +107,14 @@
 
 .hero-kicker div {
   background: rgba(8, 17, 36, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 14px;
   padding: 0.7rem 0.85rem;
   backdrop-filter: blur(3px);
+}
+
+.hero-kicker div:first-child strong {
+  color: #fff;
 }
 
 .hero-kicker strong {
@@ -175,14 +181,81 @@
 
 @media (max-width: 620px) {
   .carousel {
-    height: 640px;
+    min-height: 700px;
+    height: auto;
+  }
+
+  .hero-content {
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.8rem 0 calc(7.5rem + env(safe-area-inset-bottom));
+    padding-inline: 20px;
+    overflow: hidden;
+  }
+
+  .pill {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.35;
+    border-radius: 14px;
+    padding: 0.52rem 0.74rem;
+    font-size: 0.94rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.45rem, 7.8vw, 2rem);
+    line-height: 1.12;
+    margin: 0;
+    max-width: 100%;
+    text-wrap: pretty;
+    overflow-wrap: anywhere;
   }
 
   .hero .lead {
     font-size: 0.99rem;
+    margin: 0;
+    padding: 0.62rem 0.72rem;
+    max-width: 100%;
+    width: 100%;
+    line-height: 1.5;
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-cta {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    margin: 0.35rem 0 0.6rem;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
   }
 
   .hero-kicker {
     grid-template-columns: 1fr;
+    gap: 0.6rem;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .hero-kicker div {
+    width: 100%;
+    padding: 0.55rem 0.68rem;
+    text-align: left;
+  }
+
+  .hero-kicker strong {
+    font-size: 1.22rem;
+  }
+
+  .hero-kicker span {
+    font-size: 0.88rem;
   }
 }

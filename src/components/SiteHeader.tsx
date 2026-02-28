@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import './SiteHeader.css'
 
 import { site } from '../site'
-import logo from '../assets/AbabeelFoundation_Logo.jpg'
+const logo = '/ababeel-icon-square.png'
 
 type NavItem =
   | { kind: 'link'; to: string; label: string }
@@ -35,11 +35,21 @@ export default function SiteHeader() {
     [],
   )
 
+  const mobileItems = useMemo(
+    () =>
+      items.map((item) => {
+        if (item.kind === 'link') return { to: item.to, label: item.label }
+        return { to: '/projects', label: item.label }
+      }),
+    [items],
+  )
+
   return (
-    <header className="site-header">
+    <header className={`site-header ${mobileOpen ? 'menu-open' : ''}`}>
       <div className="content header-inner">
         <Link to="/" className="brand" aria-label={`${site.name} home`}>
-          <img className="logo" src={logo} alt={site.name} />
+          <img className="header-logo" src={logo} alt={site.name} />
+          <span className="brand-name">{site.name}</span>
         </Link>
 
         <nav className="nav desktop" aria-label="Main">
@@ -74,14 +84,14 @@ export default function SiteHeader() {
           })}
         </nav>
 
-        <div className="actions">
-          <Link className="cta" to={site.donateUrl}>
+        <div className="site-header-actions">
+          <Link className="header-cta" to={site.donateUrl}>
             Donate Now
           </Link>
           <button
             type="button"
-            className="mobile-toggle"
-            aria-label="Open menu"
+            className={`header-mobile-toggle ${mobileOpen ? 'is-open' : ''}`}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
@@ -92,52 +102,55 @@ export default function SiteHeader() {
         </div>
       </div>
 
+      <nav className="mobile-scroll-nav content" aria-label="Mobile navigation">
+        {mobileItems.map((item) => (
+          <NavLink key={`mobile-scroll-${item.to}-${item.label}`} to={item.to}>
+            {item.label}
+          </NavLink>
+        ))}
+      </nav>
+
       {mobileOpen ? (
-        <div className="mobile" role="dialog" aria-modal="true" aria-label="Menu">
-          <div className="mobile-panel">
-            <div className="mobile-head">
-              <span className="mobile-title">Menu</span>
-              <button type="button" className="mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close">
+        <div className="header-mobile" role="dialog" aria-modal="true" aria-label="Menu">
+          <div className="header-mobile-panel">
+            <div className="header-mobile-head">
+              <span className="header-mobile-title">Menu</span>
+              <button
+                type="button"
+                className="header-mobile-close"
+                onClick={() => setMobileOpen(false)}
+                aria-label="Close"
+              >
                 ×
               </button>
             </div>
 
-            <div className="mobile-links">
-              {items.map((item) => {
-                if (item.kind === 'link') {
-                  return (
-                    <NavLink key={item.to} to={item.to} onClick={() => setMobileOpen(false)}>
-                      {item.label}
-                    </NavLink>
-                  )
-                }
-
-                return (
-                  <div key={item.label} className="mobile-group">
-                    <div className="mobile-group-title">{item.label}</div>
-                    {item.items.map((sub) => (
-                      <NavLink key={sub.to} to={sub.to} onClick={() => setMobileOpen(false)}>
-                        {sub.label}
-                      </NavLink>
-                    ))}
-                  </div>
-                )
-              })}
+            <div className="header-mobile-links">
+              {mobileItems.map((item) => (
+                <NavLink key={`${item.to}-${item.label}`} to={item.to} onClick={() => setMobileOpen(false)}>
+                  {item.label}
+                </NavLink>
+              ))}
             </div>
 
-            <div className="mobile-footer">
-              <Link className="cta full" to={site.donateUrl}>
+            <div className="header-mobile-footer">
+              <Link className="header-cta header-cta-full" to={site.donateUrl}>
                 Donate Now
               </Link>
-              <a className="secondary" href={`mailto:${site.email}`}>
+              <a className="header-secondary" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
-              <a className="secondary" href={site.phoneHref}>
+              <a className="header-secondary" href={site.phoneHref}>
                 {site.phoneDisplay}
               </a>
             </div>
           </div>
-          <button type="button" className="mobile-backdrop" aria-label="Close" onClick={() => setMobileOpen(false)} />
+          <button
+            type="button"
+            className="header-mobile-backdrop"
+            aria-label="Close"
+            onClick={() => setMobileOpen(false)}
+          />
         </div>
       ) : null}
     </header>

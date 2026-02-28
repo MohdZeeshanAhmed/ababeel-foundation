@@ -27,7 +27,7 @@ export default function Dashboard() {
           <a className="btn ghost" href="/">
             Back to site
           </a>
-          <a className="btn primary" href="/contact">
+          <a className="btn primary" href="/donate">
             Donate now
           </a>
         </div>

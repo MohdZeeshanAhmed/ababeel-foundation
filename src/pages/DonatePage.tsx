@@ -37,7 +37,7 @@ export default function DonatePage() {
 
   return (
     <>
-      <section className="page container donate" aria-label="Donate">
+      <section className="page container donate" aria-label="Donate" data-reveal="up">
         <header className="donate-head">
           <p className="eyebrow">Donate</p>
           <h1 className="donate-title">Support Ababeel Foundation</h1>
@@ -47,32 +47,32 @@ export default function DonatePage() {
         </header>
 
         <div className="donate-grid">
-          <div className="poster">
+          <div className="donate-poster">
             <img src={donationPoster} alt="Ababeel Foundation donation QR and bank details" loading="lazy" />
           </div>
 
-          <div className="details">
+          <div className="donate-details">
             <div className="detail-card">
               <h2>Donation details</h2>
-              <p className="muted">
+              <p className="donate-muted">
                 You can donate via UPI/PhonePe/GPay or direct bank transfer. Tap copy to paste into your payment app.
               </p>
 
-              <div className="rows" role="list">
+              <div className="donate-rows" role="list">
                 {rows.map((r) => (
-                  <div key={r.label} className="row" role="listitem">
+                  <div key={r.label} className="donate-row" role="listitem">
                     <div>
-                      <div className="label">{r.label}</div>
-                      <div className="value">{r.value}</div>
+                      <div className="donate-label">{r.label}</div>
+                      <div className="donate-value">{r.value}</div>
                     </div>
-                    <button type="button" className="copy" onClick={() => copy(r.label, r.copy)}>
+                    <button type="button" className="donate-copy" onClick={() => copy(r.label, r.copy)}>
                       {copiedKey === r.label ? 'Copied' : 'Copy'}
                     </button>
                   </div>
                 ))}
               </div>
 
-              <div className="actions">
+              <div className="donate-actions">
                 <a className="btn primary" href={upiLink}>
                   Open UPI
                 </a>
@@ -80,11 +80,17 @@ export default function DonatePage() {
                   Contact for receipt
                 </a>
               </div>
+
+              <div className="trust-badges" aria-label="Security and trust">
+                <span>Encrypted payment flow</span>
+                <span>Donation receipt support</span>
+                <span>Transparent fund usage</span>
+              </div>
             </div>
 
             <div className="detail-card">
               <h3>Need help?</h3>
-              <p className="muted">
+              <p className="donate-muted">
                 Email <a href={`mailto:${site.email}`}>{site.email}</a> or call{' '}
                 <a href={site.phoneHref}>{site.phoneDisplay}</a>.
               </p>
@@ -96,4 +102,3 @@ export default function DonatePage() {
     </>
   )
 }
-

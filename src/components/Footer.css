@@ -18,6 +18,7 @@
   margin: 0 0 0.8rem;
   font-size: 1.05rem;
   color: #fff;
+  font-size: 1.05rem;
 }
 
 .footer-about {
@@ -40,7 +41,7 @@
 .footer-logo img {
   height: 84px;
   width: auto;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #f8fafc;
   padding: 3px;
   box-shadow: 0 8px 20px rgba(2, 6, 23, 0.35);

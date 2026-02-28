@@ -1,7 +1,16 @@
 import Footer from '../components/Footer'
 import './SimplePage.css'
+import teamImg5081 from '../assets/IMG_5081.jpeg'
+import teamImg5317 from '../assets/IMG_5317.jpeg'
+import teamImg9799 from '../assets/IMG_9799.jpeg'
+import teamImg9807 from '../assets/IMG_9807.jpeg'
 
-const categories = ['Founders & Trustees', 'Core Team', 'Volunteers', 'Medical & Academic Advisors']
+const teamSections = [
+  { title: 'Founders & Trustees', image: teamImg5081, layout: 'landscape' },
+  { title: 'Core Team', image: teamImg5317, layout: 'portrait' },
+  { title: 'Volunteers', image: teamImg9799, layout: 'portrait' },
+  { title: 'Medical & Academic Advisors', image: teamImg9807, layout: 'portrait' },
+]
 
 export default function FoundersPage() {
   return (
@@ -15,13 +24,19 @@ export default function FoundersPage() {
           </p>
         </header>
 
-        <div className="simple-grid">
-          {categories.map((category) => (
-            <article className="simple-card" key={category}>
-              <h2>{category}</h2>
-              <figure className="photo-placeholder" role="img" aria-label={`${category} group photo placeholder`}>
-                <div className="photo-placeholder-box">Photo placement</div>
-                <figcaption>Individual or group photos</figcaption>
+        <div className="simple-grid team-grid">
+          {teamSections.map((section) => (
+            <article className={`simple-card team-card team-card-${section.layout}`} key={section.title}>
+              <h2>{section.title}</h2>
+              <figure className="photo-placeholder">
+                <div className="team-photo-frame">
+                  <img
+                    className="team-photo"
+                    src={section.image}
+                    alt={`${section.title} members`}
+                    loading="lazy"
+                  />
+                </div>
               </figure>
             </article>
           ))}

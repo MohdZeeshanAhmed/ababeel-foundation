@@ -9,6 +9,10 @@
   margin: 0.3rem 0 0.25rem 0;
 }
 
+.healthcard-copy {
+  min-width: 0;
+}
+
 .benefits {
   list-style: none;
   padding: 0;
@@ -37,12 +41,12 @@
   flex-wrap: wrap;
 }
 
-.card-panel {
+.healthcard-panels {
   display: grid;
   gap: 0.75rem;
 }
 
-.panel {
+.healthcard-panel {
   background: #fff;
   border-radius: 12px;
   border: 1px solid rgba(15, 23, 42, 0.08);
@@ -50,12 +54,12 @@
   padding: 1.1rem;
 }
 
-.panel h3,
-.panel h4 {
+.healthcard-panel h3,
+.healthcard-panel h4 {
   margin: 0 0 0.45rem 0;
 }
 
-.panel p {
+.healthcard-panel p {
   margin: 0 0 0.6rem 0;
   color: #475569;
 }
@@ -80,19 +84,19 @@
   color: #475569;
 }
 
-.panel.secondary {
+.healthcard-panel-secondary {
   background: #0b1220;
   color: #e9f1ff;
   border-color: rgba(255, 255, 255, 0.08);
 }
 
-.panel.secondary ol {
+.healthcard-panel-secondary ol {
   margin: 0;
   padding-left: 1.1rem;
   color: #dbe5ff;
 }
 
-.panel.secondary li + li {
+.healthcard-panel-secondary li + li {
   margin-top: 0.4rem;
 }
 
@@ -101,4 +105,3 @@
     grid-template-columns: 1fr;
   }
 }
-

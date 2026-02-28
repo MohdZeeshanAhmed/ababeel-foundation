@@ -17,7 +17,7 @@ type HeroSlide = {
 
 const slides: HeroSlide[] = [
   {
-    title: 'ABABEEL FOUNDATION',
+    title: 'Together, we restore dignity and opportunity.',
     subtitle: 'Assisting in Basic Aid, Betterment and Education for Economically weak and Less privileged',
     badge: 'Empowering families through education, health and sustainable support.',
     primary: { label: 'Explore Our Projects', href: '/projects' },
@@ -69,7 +69,7 @@ export default function Hero() {
           />
         ))}
 
-        <div className="hero-content content">
+        <div className="hero-content content" data-reveal="up">
           <span className="pill">{slide.badge}</span>
           <h1>{slide.title}</h1>
           <p className="lead">{slide.subtitle}</p>

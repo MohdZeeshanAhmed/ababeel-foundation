@@ -1,5 +1,6 @@
 import './FloatingSocialBar.css'
 import { site } from '../site'
+import { useLocation } from 'react-router-dom'
 
 import type { ReactNode } from 'react'
 
@@ -85,9 +86,14 @@ const socials: SocialItem[] = [
 ]
 
 export default function FloatingSocialBar() {
+  const { pathname } = useLocation()
+  if (pathname === '/donate' || pathname === '/donete') return null
+
+  const visibleSocials = socials.filter((item) => item.href && item.href !== '#')
+
   return (
     <nav className="floating-social" aria-label="Social media">
-      {socials.map((item) => (
+      {visibleSocials.map((item) => (
         <a
           key={item.name}
           href={item.href}

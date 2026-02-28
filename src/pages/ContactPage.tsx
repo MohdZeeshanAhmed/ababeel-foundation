@@ -4,6 +4,8 @@ import './SimplePage.css'
 import './ContactPage.css'
 
 export default function ContactPage() {
+  const hasLinkedin = site.social.linkedin && site.social.linkedin !== '#'
+
   return (
     <>
       <section className="page container simple-page contact-page" aria-label="Contact">
@@ -62,15 +64,17 @@ export default function ContactPage() {
               </svg>
               <span className="sr-only">Facebook</span>
             </a>
-            <a href={site.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path
-                  fill="currentColor"
-                  d="M6.9 8A1.9 1.9 0 1 1 7 4.1 1.9 1.9 0 0 1 6.9 8M5.3 9.5h3.2V20H5.3zm5.1 0h3v1.4h.1a3.3 3.3 0 0 1 3-1.7c3.2 0 3.8 2.1 3.8 4.9V20H17v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20h-3.1z"
-                />
-              </svg>
-              <span className="sr-only">LinkedIn</span>
-            </a>
+            {hasLinkedin ? (
+              <a href={site.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path
+                    fill="currentColor"
+                    d="M6.9 8A1.9 1.9 0 1 1 7 4.1 1.9 1.9 0 0 1 6.9 8M5.3 9.5h3.2V20H5.3zm5.1 0h3v1.4h.1a3.3 3.3 0 0 1 3-1.7c3.2 0 3.8 2.1 3.8 4.9V20H17v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20h-3.1z"
+                  />
+                </svg>
+                <span className="sr-only">LinkedIn</span>
+              </a>
+            ) : null}
             <a href={site.social.youtube} target="_blank" rel="noreferrer" aria-label="YouTube">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path

@@ -41,14 +41,14 @@ export default function Gallery({ headingLevel = 'h2' }: GalleryProps) {
   }, [active])
 
   return (
-    <section id="gallery" className="gallery content" aria-label="Gallery">
+    <section id="gallery" className="gallery content" aria-label="Gallery" data-reveal="up">
       <div className="section-head">
         <p className="eyebrow">Gallery</p>
         <HeadingTag className="section-title">Moments from the field</HeadingTag>
         <p className="section-subtitle">A glimpse into camps, outreach programs, and community support initiatives.</p>
       </div>
 
-      <div className="grid">
+      <div className="gallery-grid">
         {items.map((img) => (
           <button
             key={img.src}
@@ -63,11 +63,11 @@ export default function Gallery({ headingLevel = 'h2' }: GalleryProps) {
       </div>
 
       {active ? (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
-          <button type="button" className="backdrop" onClick={() => setActive(null)} aria-label="Close" />
-          <div className="panel">
+        <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+          <button type="button" className="gallery-backdrop" onClick={() => setActive(null)} aria-label="Close" />
+          <div className="gallery-panel">
             <img src={active.src} alt={active.alt} />
-            <button type="button" className="close" onClick={() => setActive(null)} aria-label="Close">
+            <button type="button" className="gallery-close" onClick={() => setActive(null)} aria-label="Close">
               ×
             </button>
           </div>

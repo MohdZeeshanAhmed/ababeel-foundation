@@ -12,7 +12,7 @@ const benefits = [
 export default function HealthCard() {
   return (
     <section id="card" className="healthcard container">
-      <div className="copy">
+      <div className="healthcard-copy">
         <p className="eyebrow">What is Ababeel Foundation&apos;s Ummeed Health Card?</p>
         <h2 className="section-title">One card. Countless benefits for every family.</h2>
         <p className="section-subtitle">
@@ -33,8 +33,8 @@ export default function HealthCard() {
           </a>
         </div>
       </div>
-      <div className="card-panel">
-        <div className="panel">
+      <div className="healthcard-panels">
+        <div className="healthcard-panel">
           <h3>Affordable Healthcare</h3>
           <p>Building a healthier tomorrow with partner hospitals and diagnostics.</p>
           <div className="panel-stat">
@@ -46,7 +46,7 @@ export default function HealthCard() {
             <span>Beneficiaries</span>
           </div>
         </div>
-        <div className="panel secondary">
+        <div className="healthcard-panel healthcard-panel-secondary">
           <h4>How it works</h4>
           <ol>
             <li>Get or sponsor an Ummeed Health Card.</li>

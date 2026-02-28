@@ -4,9 +4,7 @@ import Footer from '../components/Footer'
 export default function AboutPage() {
   return (
     <>
-      <div className="page">
-        <About headingLevel='h1' />
-      </div>
+      <About headingLevel="h1" />
       <Footer />
     </>
   )

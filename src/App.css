@@ -38,8 +38,8 @@
 
 .section-title {
   font-size: clamp(1.75rem, 3.2vw, 2.55rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
   margin: 0 0 0.55rem;
 }
 
@@ -72,7 +72,9 @@
   text-decoration: none;
   font-weight: 800;
   border: 1px solid transparent;
-  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, box-shadow 220ms ease, filter 180ms ease, border-color 180ms ease,
+    background-color 180ms ease;
+  will-change: transform;
 }
 
 .btn:hover {
@@ -111,12 +113,31 @@
   scroll-margin-top: 96px;
 }
 
-.page,
-.services,
-.about,
-.gallery,
-.site-footer {
-  animation: sectionFadeIn 0.5s ease both;
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal='left'] {
+  transform: translateX(-22px);
+}
+
+[data-reveal='left'].revealed {
+  transform: translateX(0);
+}
+
+[data-reveal='right'] {
+  transform: translateX(22px);
+}
+
+[data-reveal='right'].revealed {
+  transform: translateX(0);
 }
 
 @keyframes sectionFadeIn {
@@ -139,10 +160,47 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 900px) {
   .main-content {
     padding-bottom: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .container,
+  .content {
+    padding-inline: 14px;
+  }
+
+  .page {
+    padding: 1.5rem 0 2rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.45rem, 7vw, 1.95rem);
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .btn {
+    min-height: 44px;
+    padding: 0.68rem 1rem;
+  }
+}
+
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
   }
 }

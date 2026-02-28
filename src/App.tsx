@@ -40,6 +40,37 @@ function ScrollToTop() {
 }
 
 function Shell() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) return
+
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]:not(.revealed)'))
+    if (!targets.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.18, rootMargin: '0px 0px -6% 0px' },
+    )
+
+    const raf = window.requestAnimationFrame(() => {
+      targets.forEach((el) => observer.observe(el))
+    })
+
+    return () => {
+      window.cancelAnimationFrame(raf)
+      observer.disconnect()
+    }
+  }, [pathname])
+
   return (
     <div className="app-shell">
       <SiteHeader />

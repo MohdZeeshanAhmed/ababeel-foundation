@@ -20,7 +20,7 @@ export default function About({ headingLevel = 'h2' }: AboutProps) {
   const HeadingTag = headingLevel
 
   return (
-    <section id="about" className="about container" aria-label={`About ${site.name}`}>
+    <section id="about" className="about container" aria-label={`About ${site.name}`} data-reveal="up">
       <div className="about-main">
         <div className="about-image">
           <img src={aboutImg} alt="Ababeel Foundation team and field activity" loading="lazy" />

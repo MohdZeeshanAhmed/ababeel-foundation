@@ -5,7 +5,7 @@ import './Services.css'
 
 function Icon({ children }: { children: ReactNode }) {
   return (
-    <span className="icon" aria-hidden="true">
+    <span className="service-icon" aria-hidden="true">
       {children}
     </span>
   )
@@ -90,7 +90,7 @@ const items: Array<{ title: string; icon: ReactNode; desc: string; href: string 
 
 export default function Services() {
   return (
-    <section id="services" className="services content">
+    <section id="services" className="services content" data-reveal="up">
       <div className="section-head">
         <p className="eyebrow">What We Do</p>
         <h2 className="section-title">Focused Programs For Lasting Impact</h2>
@@ -98,10 +98,10 @@ export default function Services() {
           Ababeel Foundation operates focused programs that address education, nutrition, health and employable skills.
         </p>
       </div>
-      <div className="grid">
+      <div className="services-grid">
         {items.map((item) => (
           <Link key={item.title} className="service-card" to={item.href}>
-            <div className="icon-wrap">{item.icon}</div>
+            <div className="service-icon-wrap">{item.icon}</div>
             <h3>{item.title}</h3>
             <p>{item.desc}</p>
           </Link>

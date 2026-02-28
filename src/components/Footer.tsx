@@ -5,8 +5,16 @@ import { site } from '../site'
 import logo from '../assets/footer-logo-new.png'
 
 export default function Footer() {
+  const socialLinks = [
+    { label: 'WhatsApp', href: site.social.whatsapp },
+    { label: 'Instagram', href: site.social.instagram },
+    { label: 'Facebook', href: site.social.facebook },
+    { label: 'LinkedIn', href: site.social.linkedin },
+    { label: 'Youtube', href: site.social.youtube },
+  ].filter((item) => item.href && item.href !== '#')
+
   return (
-    <footer className="site-footer" aria-label="Footer">
+    <footer className="site-footer" aria-label="Footer" data-reveal="up">
       <div className="content footer-top">
         <div className="footer-col footer-about">
           <Link to="/" className="footer-logo" aria-label="Home">
@@ -39,21 +47,11 @@ export default function Footer() {
 
         <div className="footer-col">
           <h3>Social Media</h3>
-          <a href={site.social.whatsapp} target="_blank" rel="noreferrer">
-            WhatsApp
-          </a>
-          <a href={site.social.instagram} target="_blank" rel="noreferrer">
-            Instagram
-          </a>
-          <a href={site.social.facebook} target="_blank" rel="noreferrer">
-            Facebook
-          </a>
-          <a href={site.social.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-          <a href={site.social.youtube} target="_blank" rel="noreferrer">
-            Youtube
-          </a>
+          {socialLinks.map((item) => (
+            <a key={item.label} href={item.href} target="_blank" rel="noreferrer">
+              {item.label}
+            </a>
+          ))}
         </div>
       </div>
 
