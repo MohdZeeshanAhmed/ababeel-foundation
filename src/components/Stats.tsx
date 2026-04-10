@@ -2,20 +2,24 @@ import { useEffect, useRef, useState } from 'react'
 import './Stats.css'
 
 type Metric = {
-  target: number
-  label: string
-  suffix?: string
+  entries: {
+    target: number
+    label: string
+    suffix?: string
+  }[]
+  heading?: string
   compact?: boolean
 }
 
 const metrics: Metric[] = [
-  { target: 3964, label: 'Health camp beneficiaries' },
-  { target: 118, label: 'TOSS students supported for 10th & Intermediate' },
-  { target: 19, label: 'Skill development beneficiaries' },
-  { target: 1434, label: 'Document correction beneficiaries' },
-  { target: 300, suffix: ' families', label: 'Project Upcycle beneficiaries' },
-  { target: 300, suffix: ' families', label: 'Manna Salwa beneficiaries' },
-  { target: 518, label: 'Beyond Books students benefitted' },
+  { entries: [{ target: 3964, label: 'Health camp beneficiaries' }] },
+  { entries: [{ target: 118, label: 'TOSS students supported for 10th & Intermediate' }] },
+  { entries: [{ target: 19, label: 'Skill development beneficiaries' }] },
+  { entries: [{ target: 1434, label: 'Document correction beneficiaries' }] },
+  {
+    entries: [{ target: 300, suffix: ' families', label: '' }],
+  },
+  { entries: [{ target: 518, label: 'Beyond Books students benefitted' }] },
 ]
 
 function formatMetric(value: number, compact = false) {
@@ -27,7 +31,7 @@ function formatMetric(value: number, compact = false) {
 }
 
 export default function Stats() {
-  const [values, setValues] = useState(metrics.map(() => 0))
+  const [values, setValues] = useState(metrics.map((metric) => metric.entries.map(() => 0)))
   const started = useRef(false)
   const rootRef = useRef<HTMLElement | null>(null)
 
@@ -45,7 +49,7 @@ export default function Stats() {
         const tick = (now: number) => {
           const progress = Math.min((now - start) / duration, 1)
           const eased = 1 - Math.pow(1 - progress, 3)
-          setValues(metrics.map((m) => m.target * eased))
+          setValues(metrics.map((metric) => metric.entries.map((entry) => entry.target * eased)))
           if (progress < 1) requestAnimationFrame(tick)
         }
 
@@ -61,12 +65,23 @@ export default function Stats() {
   return (
     <section id="impact" ref={rootRef} className="stats container" data-reveal="up">
       {metrics.map((m, i) => (
-        <div key={m.label} className="stat">
-          <div className="value">
-            {formatMetric(values[i], m.compact)}
-            {m.suffix}
-          </div>
-          <p>{m.label}</p>
+        <div key={m.entries.map((entry) => entry.label).join('-')} className="stat">
+          {m.heading ? <p className="stat-heading">{m.heading}</p> : null}
+          {m.entries.map((entry, entryIndex) => (
+            <div key={entry.label} className={m.entries.length > 1 ? 'stat-entry stat-entry--stacked' : 'stat-entry'}>
+              <div className="value">
+                {formatMetric(values[i][entryIndex], m.compact)}
+                {entry.suffix}
+              </div>
+              {!m.heading && entry.label ? <p>{entry.label}</p> : null}
+            </div>
+          ))}
+          {!m.heading && m.entries[0]?.suffix === ' families' ? (
+            <div className="stat-entry stat-entry--stacked">
+              <p>Project Upcycle beneficiaries</p>
+              <p>Manna Salwa beneficiaries</p>
+            </div>
+          ) : null}
         </div>
       ))}
     </section>

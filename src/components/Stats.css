@@ -1,6 +1,6 @@
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin: 0 auto;
   padding-top: 0.65rem;
@@ -24,11 +24,24 @@
   border-color: rgba(16, 185, 129, 0.32);
 }
 
+.stat-heading {
+  margin: 0 0 0.7rem;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .stat .value {
   font-size: clamp(1.2rem, 2.1vw, 1.55rem);
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 0.32rem;
+}
+
+.stat-entry--stacked + .stat-entry--stacked {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .stat p {
