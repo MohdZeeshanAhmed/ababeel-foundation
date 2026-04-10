@@ -19,6 +19,9 @@ export default function ProjectsPage() {
         <div className="simple-grid">
           {projects.map((project) => (
             <article className="simple-card" key={project.slug}>
+              <div className="simple-card-media">
+                <img src={project.image} alt={project.imageAlt} loading="lazy" />
+              </div>
               <h2>{project.title}</h2>
               <p>{project.shortDescription}</p>
               <Link className="btn link" to={`/services/${project.slug}`}>

@@ -3,6 +3,7 @@ import './About.css'
 
 import { site } from '../site'
 import aboutImg from '../assets/about-team-field.jpeg'
+import originPoster from '../assets/ababeel-origin-poster.jpg'
 
 type AboutProps = {
   headingLevel?: 'h1' | 'h2'
@@ -33,6 +34,18 @@ export default function About({ headingLevel = 'h2' }: AboutProps) {
             marginalized families by addressing the root causes of poverty - lack of education, healthcare, nutrition,
             and sustainable income.
           </p>
+
+          <div className="about-origin">
+            <h3>Why We Are Called Ababeel</h3>
+            <div className="about-origin-media">
+              <img src={originPoster} alt="Small Things, Big Impact poster explaining the meaning behind Ababeel Foundation" loading="lazy" />
+            </div>
+            <p className="section-subtitle">
+              We named our foundation after the small birds mentioned in Surah Feel. They were small, but they changed
+              the course of history. That is the model for our work too: one small act, one kind intention, repeated
+              enough times to change someone&apos;s future.
+            </p>
+          </div>
 
           <h3>Why We Exist</h3>
           <p className="section-subtitle">

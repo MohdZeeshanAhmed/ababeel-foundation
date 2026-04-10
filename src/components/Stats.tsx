@@ -1,11 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
 import './Stats.css'
 
-const metrics = [
-  { target: 70, suffix: '+', label: 'Hospitals, diagnostic centers & clinics' },
-  { target: 300000, suffix: '+', label: 'Beneficiaries across 7 states', compact: true },
-  { target: 450, suffix: '+', label: 'Dedicated volunteers powering the mission' },
-  { target: 15, suffix: '+ yrs', label: 'Experience delivering dignified care' },
+type Metric = {
+  target: number
+  label: string
+  suffix?: string
+  compact?: boolean
+}
+
+const metrics: Metric[] = [
+  { target: 3964, label: 'Health camp beneficiaries' },
+  { target: 118, label: 'TOSS students supported for 10th & Intermediate' },
+  { target: 19, label: 'Skill development beneficiaries' },
+  { target: 1434, label: 'Document correction beneficiaries' },
+  { target: 300, suffix: ' families', label: 'Project Upcycle beneficiaries' },
+  { target: 300, suffix: ' families', label: 'Manna Salwa beneficiaries' },
+  { target: 518, label: 'Beyond Books students benefitted' },
 ]
 
 function formatMetric(value: number, compact = false) {

@@ -30,24 +30,43 @@ export default function ServicePage() {
       <section className="page container simple-page" aria-label="Project details">
         <header className="simple-head">
           <p className="eyebrow">Our Projects</p>
-          {project?.slug === 'hunar' ? (
-            <div className="simple-title-with-logo">
-              <img className="simple-title-logo" src={hunarLogo} alt="HUNAR by Ababeel Foundation" loading="lazy" />
-              <div className="simple-title-text">
-                <h1 className="simple-title">{project.title}</h1>
-                <p className="simple-subtitle">{project.about}</p>
+          <div className="simple-project-hero">
+            {project ? (
+              <div className="simple-project-image-frame">
+                <img className="simple-project-image" src={project.image} alt={project.imageAlt} loading="lazy" />
               </div>
-            </div>
-          ) : (
-            <>
-              <h1 className="simple-title">{project?.title ?? 'Project'}</h1>
-              <p className="simple-subtitle">{project?.about ?? 'This project page is not available.'}</p>
-            </>
-          )}
+            ) : null}
+
+            {project?.slug === 'hunar' ? (
+              <div className="simple-title-with-logo">
+                <img className="simple-title-logo" src={hunarLogo} alt="HUNAR by Ababeel Foundation" loading="lazy" />
+                <div className="simple-title-text">
+                  <h1 className="simple-title">{project.title}</h1>
+                  <p className="simple-subtitle">{project.about}</p>
+                </div>
+              </div>
+            ) : (
+              <div className="simple-project-copy">
+                <h1 className="simple-title">{project?.title ?? 'Project'}</h1>
+                <p className="simple-subtitle">{project?.about ?? 'This project page is not available.'}</p>
+              </div>
+            )}
+          </div>
         </header>
 
         {project ? (
           <>
+            {project.story?.length ? (
+              <div className="simple-card">
+                <h2>Program Story</h2>
+                <div className="simple-story">
+                  {project.story.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
             {project.services?.length ? (
               <div className="simple-card">
                 <h2>{project.servicesTitle ?? 'Services'}</h2>
@@ -115,7 +134,7 @@ export default function ServicePage() {
 
             {project.photoNotes?.length ? (
               <div className="simple-card">
-                <h2>Photo Placement</h2>
+                <h2>Visual Focus</h2>
                 <ul className="simple-list">
                   {project.photoNotes.map((item) => (
                     <li key={item}>{item}</li>
