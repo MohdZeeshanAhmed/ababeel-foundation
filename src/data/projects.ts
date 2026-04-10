@@ -1,11 +1,11 @@
-import darulArqamImage from '../assets/darul-arqam-classroom.jpg'
-import shamaImage from '../assets/shama-classroom.jpg'
-import mannaSalwaImage from '../assets/gallery-4.jpeg'
-import medicalCampsImage from '../assets/IMG_1936.JPG.jpeg'
-import hunarImage from '../assets/IMG_6156.JPG.jpeg'
-import beyondBooksImage from '../assets/about-team-field.jpeg'
-import pehchaanImage from '../assets/IMG_4122.JPG.jpeg'
-import upcycleImage from '../assets/gallery-3.jpeg'
+import darulArqamImage from '../assets/new_images/IMG_9871.PNG'
+import shamaImage from '../assets/new_images/IMG_9874.PNG'
+import mannaSalwaImage from '../assets/new_images/IMG_9876.PNG'
+import medicalCampsImage from '../assets/new_images/IMG_9873.PNG'
+import hunarImage from '../assets/new_images/IMG_9877.PNG'
+import beyondBooksImage from '../assets/new_images/IMG_9875.PNG'
+import pehchaanImage from '../assets/new_images/IMG_9872.PNG'
+import upcycleImage from '../assets/new_images/IMG_9878.PNG'
 
 export type Project = {
   slug: string
